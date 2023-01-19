@@ -1,0 +1,6 @@
+1) Fistly you need to install ffmpeg.
+2) Specify the number of seconds in 1 record in the parameter -segment_time 900.
+3) Here you can choose format of video -segment_format mkv
+
+ffmpeg -hide_banner -y -loglevel error -rtsp_transport tcp -use_wallclock_as_timestamps 1 -i rtsp://username:password@192.168.1.123:554/stream1 -vcodec copy -acodec copy -f segment -reset_timestamps 1 -segment_time 900 -segment_format mkv - segment_atclocktime 1 -strftime 1 %Y%m%dT%H%M%S.mkv
+
